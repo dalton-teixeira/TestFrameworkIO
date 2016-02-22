@@ -1,6 +1,6 @@
 {
   "name": "testio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
   "homepage": "https://github.com/dalton-teixeira/TestFrameworkIO",
   "main": "test/runner.js",

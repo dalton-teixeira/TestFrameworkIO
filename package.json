@@ -1,20 +1,15 @@
 {
-  "name": "cucumber-boilerplate",
-  "version": "0.0.0",
+  "name": "testio",
+  "version": "0.0.1",
   "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
-  "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
+  "homepage": "https://github.com/dalton-teixeira/TestFrameworkIO",
   "main": "test/runner.js",
-  "scripts": {
-    "postinstall": "selenium-standalone install",
-    "server": "(selenium-standalone start & http-server ./demo-app)",
-    "phantomjs": "phantomjs"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webdriverio/cucumber-boilerplate.git"
+    "url": "https://github.com/dalton-teixeira/TestFrameworkIO.git"
   },
   "bugs": {
-    "url": "https://github.com/webdriverio/cucumber-boilerplate/issues"
+    "url": "https://github.com/dalton-teixeira/TestFrameworkIO/issues"
   },
   "keywords": [
     "webdriverio",
@@ -22,21 +17,26 @@
     "test",
     "selenium"
   ],
-  "author": "Christian Bromann <christian@saucelabs.com>",
+  "author": "Dalton Teixeira <dalton.silveira@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "chai": "~3.4.1",
     "deepmerge": "~0.2.7",
     "glob": "~6.0.1",
-    "mocha": "^2.3.3",
-    "mocha-jenkins-reporter": "^0.1.9",
+    "mocha": "*",
+    "mocha-jenkins-reporter": "*",
     "q": "~1.4.1",
-    "webdriverio": "^3.4.0",
-    "yadda": "^0.16.0"
+    "webdriverio": "*",
+    "yadda": "*",
+    "xunit-file": "*",
+    "reporter-file": "*"
   },
   "devDependencies": {
     "http-server": "^0.8.5",
     "phantomjs": "^1.9.19",
     "selenium-standalone": "^4.8.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }

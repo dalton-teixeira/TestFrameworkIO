@@ -60,10 +60,10 @@ exports.config = {
      * mocha options
      * @see http://mochajs.org/
      */
-    mochaOpts: {
-        reporter: 'JSON',
-        timeout: 300000,
-        require: 'chai'
-
-    }
+     mochaOpts: {
+         reporter: 'xunit-file',
+         timeout: 300000,
+         require: 'chai',
+         file : "xunit.xml"
+     }
 };

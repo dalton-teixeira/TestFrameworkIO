@@ -25,6 +25,9 @@ module.exports = function (selectionType, selectionValue, selectElem, done) {
         }
     }
 
-    this.browser[command](selectElem, selectionValue)
+    var selector = this.pageMap[selectElem];
+
+    this.browser[command](selector, selectionValue)
+        .waitElemReady(selector, this.networkTimeout)
         .call(done);
 };

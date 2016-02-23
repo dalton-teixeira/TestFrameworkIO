@@ -3,8 +3,10 @@
  */
 
 module.exports = function (elem, falseCase, position, axis, done) {
-    this.browser
-        .getLocation(elem, axis)
+  var selector = this.pageMap[elem];
+  this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        .getLocation(selector, axis)
         .then(function (res) {
             position = parseInt(position, 10);
 

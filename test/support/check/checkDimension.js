@@ -3,8 +3,11 @@
  */
 
 module.exports = function (elem, falseCase, size, dimension, done) {
-    this.browser
-        .getElementSize(elem)
+
+  var selector = this.pageMap[elem];
+  this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        .getElementSize(selector)
         .then(function (res) {
             var check = res.height,
                 label = 'height';

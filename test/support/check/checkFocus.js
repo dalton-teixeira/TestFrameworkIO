@@ -1,5 +1,7 @@
-module.exports = function (selector, falseCase, done) {
+module.exports = function (elem, falseCase, done) {
+    var selector = this.pageMap[elem];
     this.browser
+        .waitElemReady(selector, this.networkTimeout)
         .isExisting(selector + ":focus")
         .then(function (isExisting) {
             if (falseCase) {

@@ -5,7 +5,10 @@
 module.exports = function (isCSS, attrName, elem, falseCase, value, done) {
     var command = isCSS ? 'getCssProperty' : 'getAttribute';
 
-    this.browser[command](elem, attrName)
+    var selector = this.pageMap[elem];
+    this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        [command](selector, attrName)
         .then(function (res) {
             /**
              * when getting something with a color WebdriverIO returns a color

@@ -5,8 +5,10 @@
 module.exports = function (isExisting, elem, done) {
     isExisting = (isExisting === 'an');
 
+    var selector = this.pageMap[elem];
     this.browser
-        .elements(elem)
+        .waitElemReady(selector, this.networkTimeout)
+        .elements(selector)
         .then(function (res) {
             if (isExisting) {
                 expect(res.value).to.have.length.above(0, 'element with selector "' + elem + '" should exist on the page');

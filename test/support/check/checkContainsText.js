@@ -5,7 +5,10 @@
 module.exports = function (type, element, falseCase, done) {
     var command = (type !== 'inputfield') ? 'getText' : 'getValue';
 
-    this.browser[command](element)
+    var selector = this.pageMap[element];
+    this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        [command](selector)
         .then(function (text) {
             if (falseCase) {
                 expect(text).to.not.be.empty;

@@ -13,7 +13,10 @@ module.exports = function (type, element, falseCase, origText, done) {
         falseCase = !falseCase;
     }
 
-    this.browser[command](element)
+    var selector = this.pageMap[element];
+    this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        [command](element)
         .then(function (text) {
             if (falseCase) {
                 origText.should.not.equal(text);

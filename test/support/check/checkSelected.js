@@ -3,8 +3,10 @@
  */
 
 module.exports = function (element, falseCase, done) {
-    this.browser
-        .isSelected(element)
+  var selector = this.pageMap[element];
+  this.browser
+        .waitElemReady(selector, this.networkTimeout)
+        .isSelected(selector)
         .then(function (isSelected) {
             if (falseCase) {
                 isSelected.should.not.equal(true, element + ' should not be selected');

@@ -2,8 +2,10 @@
  * check if element is visible
  */
 
-module.exports = function (selector, falseCase, done) {
+module.exports = function (element, falseCase, done) {
+    var selector = this.pageMap[element];
     this.browser
+        .waitElemReady(selector, this.networkTimeout)
         .elements(selector)
         .then(function (elements) {
             if (falseCase) {

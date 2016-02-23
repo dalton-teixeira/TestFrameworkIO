@@ -3,8 +3,10 @@
 module.exports = function (elem, falseCase, className, done) {
     falseCase = (falseCase === 'does not have') ? true : false;
 
+    var selector = this.pageMap[elem];
     this.browser
-        .getAttribute(elem, 'className')
+        .waitElemReady(selector, this.networkTimeout)
+        .getAttribute(selector, 'className')
         .then(function (classes) {
             classes = classes.split(' ');
 

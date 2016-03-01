@@ -3,6 +3,9 @@ module.exports = function () {
         .when(/^I click on the "$string"$/,
             require('../support/action/clickElement'))
 
+        .when(/^I click at (\d+st|\d+nd|\d+rd|\d+th) "$string"$/,
+            require('../support/action/clickElementAtIndex'))
+
         .when(/^I click on the "$string" to show "$string"$/,
             require('../support/action/clickElementAndWaitFor'))
 

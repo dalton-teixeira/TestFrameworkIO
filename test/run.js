@@ -4,7 +4,6 @@
  * wrapper arround mocha cmd
  * figures out options and calls mocha with desired arguments
  */
-
 var spawn = require('child_process').spawn,
     path = require('path'),
     args = [path.join(__dirname, '..', 'node_modules', 'mocha', 'bin', '_mocha')],

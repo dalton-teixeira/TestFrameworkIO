@@ -7,6 +7,7 @@ var WaitForElemReady = function(selector, timeout){
             this.isExisting(selector).then(function(isExisting){ return isExisting; }) &&
             this.isEnabled(selector).then(function(isEnabled){ return isEnabled; }) &&
             this.isVisible(selector).then(function(isVisible){ return isVisible; });
+            this.scroll(selector);
         }
         catch(e){
           return false;
@@ -15,7 +16,9 @@ var WaitForElemReady = function(selector, timeout){
       }, timeout)
       .then(function(){
         var ElemEventsBindingTimeout = 2000;
-        return this.pause(ElemEventsBindingTimeout).then(function(){ return this; });
+        return this
+        .pause(ElemEventsBindingTimeout)
+        .then(function(){ return this; });
       });
 };
 

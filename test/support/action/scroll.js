@@ -1,6 +1,7 @@
-module.exports = function (selector, done) {
+module.exports = function (element, done) {
+    var selector = this.pageMap[element];
     this.browser
-        .waitForExist(selector, 15000)
+        .waitElemReady(selector)
         .then(function (result) {
             return this
                 .scroll(selector);
